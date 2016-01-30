@@ -46,7 +46,7 @@ app.service('myService', ['$http', function($http) {
 		return 'This is cool';
 	}
 	this.getColumns = function() {
-		return $http.get('http://titan.psclistens.com:3000/mynodeapp/hello')
+		return $http.get('http://titan.psclistens.com:3000/mynodeapp/bySection/Manhattan')
 	}
 }]);
 
