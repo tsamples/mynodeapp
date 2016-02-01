@@ -3,6 +3,7 @@ var app = express();
 var myurl = require('url');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+var request = require('request');
 
 app.get('/mynodeapp/bySection/:firstPart', function(req, res) {
 	var testParm = req.params.test;
@@ -31,6 +32,14 @@ app.get('/mynodeapp/bySection/:firstPart', function(req, res) {
 	});
 	
 });
+
+app.get('/getData', function(req, res) {
+request('http://www.google.com', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        res.send(body) // Print the google web page.
+     }
+})
+})
 
 app.get('/pushdata', function(req, res){
 	var url = 'mongodb://localhost:27017/test';
